@@ -32,20 +32,18 @@ Things you may want to cover:
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :tags,  through:  :groups_users
+- has_many :groups,  through:  :groups_users
 - has_many :comments
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|body|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
 - belongs_to :user
 - has_many :comments
 - has_many :groups_user
-- has_many  :tags,  through:  :groups_users
+- has_many  :groups,  through:  :groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -60,7 +58,7 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|image|string||
 |body|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
