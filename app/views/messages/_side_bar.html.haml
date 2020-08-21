@@ -1,0 +1,19 @@
+%body
+  .side-ber
+    .side-ber__user-name
+      .top-items
+        .top-items__name
+        %ul.top-items__icons 
+          %li.top-items__icons__edit
+            = link_to "#", class: "top-items__icons__btn" do
+              = icon('fas', 'edit')
+          %li.top-items__icons__cog
+            = link_to "#", class: "top-items__icons__btn" do
+              = icon('fas', 'cog')
+    .side-ber__group-list
+      = link_to "#", class: "group" do
+        %p.group__group-name
+        %p.group__latest-message
+          まだメッセージがありません
+
+
