@@ -6,18 +6,15 @@
           = current_user.name
         %ul.top-items__icons 
           %li.top-items__icons__edit
-            = link_to new_group_path, class: "top-items__icons__btn" do
+            = link_to "#", class: "top-items__icons__btn" do
               = icon('fas', 'edit')
           %li.top-items__icons__cog
             = link_to edit_user_path(current_user), class: "top-items__icons__btn" do
               = icon('fas', 'cog')
     .side-ber__group-list
-      - current_user.groups.each do |group|
-        .Group
-          = link_to '#' do
-            .Group__name
-              = group.name
-            .Group__message
-              メッセージはまだありません
+      = link_to "#", class: "group" do
+        %p.group__group-name
+        %p.group__latest-message
+          まだメッセージがありません
 
 
