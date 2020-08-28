@@ -20,14 +20,17 @@
     height: calc(100vh - 100px);
     width: 300px;
     padding: 20px;
-    .group {
-      color: white;
-      text-decoration: none;
+    overflow: scroll;
+    .Group {
       margin-bottom: 40px;
-      &__group-name {
+      &__list {
+        text-decoration: none;
+        color: white;
+      }
+      &__name {
         font-size: 15px;
       }
-      &__latest-message {
+      &__message {
         font-size: 11px;
         margin-top: 5px;
       }
@@ -73,6 +76,7 @@
     &__group-name{
         color: #333333;
         margin: 35px 0 15px 0;
+        font-size: 20px;
       }
     &__memberlist  {
       display: flex;
@@ -97,28 +101,6 @@
       box-sizing: border-box;
       padding: 35px 40px 0;
       overflow: scroll;
-    .message__box{
-      margin-bottom: 46px;
-      .message__info{
-        display: flex;
-        &__user-name{
-          color: #333333;
-          font-size: 16px;
-          font-weight: bold;
-        }
-        &__date{
-          color: #999999;
-          font-size: 12px;
-        }
-      }
-    }
-      .message{
-        margin-top: 12px;
-        &__content{
-          color: #434a54;
-          font-size: 14px;
-        }
-      }
   }
   form{
     background-color: #d2d2d2;
@@ -162,3 +144,27 @@
     }
   }
 }
+
+.MessageBox{
+  margin-bottom: 46px;
+  .MessageInfo{
+    display: flex;
+    &__userName{
+      color: #333333;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__date{
+      color: #999999;
+      font-size: 12px;
+      padding-left: 10px;
+    }
+  }
+}
+  .Message{
+    margin-top: 12px;
+    &__content{
+      color: #434a54;
+      font-size: 14px;
+    }
+  }

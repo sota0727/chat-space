@@ -3,24 +3,23 @@
     .RightHeader
       .RightHeader__group
         .RightHeader__group-name
+          = @group.name
         %ul.RightHeader__memberlist 
           Member：
           %li.RightHeader__member
-      = link_to "#", class: "RightHeader__edit-button" do
+            - @group.users.each do |user|
+              = user.name
+      = link_to edit_group_path(@group), class: "RightHeader__edit-button" do
         Edit
-    .message__field
-      .message__box
-        .message__info
-          .message__info__user-name
-          .message__info__date
-        .message
-          %p.message__content
-    .form
-      %form.new_message
-        .input-box
-          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-          %label{class: "input-box__image"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "input-box__image__file"}
-        %input{type: "submit", class: "submit-btn"}
         
+    .message__field
+      = render @messages
+
+    .form
+      = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+        .input-box
+          = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = icon('fas', 'image')
+            = f.file_field :image, class: "input-box__image__file"
+        = f.submit 'Send', class: "submit-btn"
